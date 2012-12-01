@@ -1,0 +1,11 @@
+<html>
+<head><title>Bookmarks</title></head>
+<body>
+<h1>Bookmarks</h1>
+<% @bookmarks.each do |item|%>
+  <%= link_to item.url, :controller => :tags, :action => :new, :id => item.id %>
+    </hr>
+	<%end%>
+	<p><%= link_to 'New',new_bookmark_path %></p>
+</body>
+</html>

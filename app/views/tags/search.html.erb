@@ -1,0 +1,6 @@
+Results:
+<br>
+<% @bookmarks.each do |item|%>
+  <%= link_to item.url, :controller => :tags, :action => :new, :id => item.id %><br>
+    </hr>
+	<%end%>

@@ -1,0 +1,15 @@
+Bookmark : <%= @bookmark.url %>
+<hr/>
+<%= form_for @tag, :url => { :action => :create, :id => @bookmark.id } do |f| -%>
+
+   Tag name: <%= f.text_field :name %> <br>
+   <%= f.submit %>
+<% end -%>
+
+<%if !@bookmark.tags.blank? %>
+   <% for item in @bookmark.tags %>
+      <%= item.name %>
+   <% end %>
+<% else %>
+No tags
+<% end %>

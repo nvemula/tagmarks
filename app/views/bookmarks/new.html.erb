@@ -1,0 +1,7 @@
+Enter new bookmark:<br/>
+
+<%= form_for @bookmark do |f| -%>
+    Url : <%= f.text_field :url %>
+<br/>
+<%= f.submit %>
+<% end -%>
