@@ -1,0 +1,31 @@
+<html>
+<head><title>tagmarks</title></head>
+<body>
+<div class="row">
+<div class="span12" align="center">
+<h2 style="color:blue;text-align:center;" >tagmarks</h2>
+<div id="my-app">
+  <form name="input" action="/search" method="get">
+   <input type="text" name="search" id="search" />
+    <input class="hide" type="submit" value="Submit" />
+  </form> 
+</div>
+
+
+</div>
+<div class="span12 well" id="bookmarks">
+</div>
+<div class="span12 well" id="bookmarkresults">
+Results
+</div>
+<script id="bookmarkTemplate" type="text/template">
+               
+                    <div id="bookmarks">
+                     <a target="_blank" href="http://<%%= url %> ">   <%%= url %></a>
+                    </div>
+                    
+      
+
+</script>
+</body>
+</html>

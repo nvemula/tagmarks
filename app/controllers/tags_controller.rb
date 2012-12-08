@@ -10,6 +10,9 @@ class TagsController < ApplicationController
         redirect_to new_tag_path(:id => @bookmark.id)
       end		
    end
+   def show
+    render :json => Tag.find(params[:id])
+   end
    def search
       @tags = Tag.where(:name => params[:query])
       @bookmarks = Array.new 
@@ -17,6 +20,6 @@ class TagsController < ApplicationController
 	      @bookmark = Bookmark.find(item.bookmark_id)
           @bookmarks.push @bookmark		  
 	  end
-  
+      render :json => @bookmarks  
    end
 end
