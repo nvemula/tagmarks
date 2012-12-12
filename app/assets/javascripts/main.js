@@ -1,5 +1,5 @@
  $(function() {
-                var Bookmark = Backbone.Model.extend();
+                var Bookmark = Backbone.Model.extend({url:'/bookmarks'});
 
                 var BookmarkList = Backbone.Collection.extend({
                     model: Bookmark,
@@ -9,6 +9,8 @@
                 var BookmarkView = Backbone.View.extend({
                     el: "#bookmarks",
                     template: _.template($('#bookmarkTemplate').html()),
+             
+
                     render: function(eventName) {
                         _.each(this.model.models, function(bookmark){
                             var bookmarkTemplate = this.template(bookmark.toJSON());
@@ -20,12 +22,25 @@
                 });
 
 				var AppView = Backbone.View.extend({
+   events: {
+        "click #submit": "SubmitForm",
+    },
+	SubmitForm: function(){
+      
+ 	    url1 = $("#bookmark_url").val();
+        var bookmark_model = new Bookmark({url:url1});
+		bookmark_model.save();
+		
+        return true;
+    },
+   
    el: "body",
    initialize: function() {
                       var bookmarks = new BookmarkList();    
                 var bookmarksView = new BookmarkView({model: bookmarks});
 bookmarks.bind('reset', function () {
                     bookmarksView.render();
+				
                 });
       
 
